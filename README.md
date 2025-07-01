@@ -1,85 +1,101 @@
-# README - Proyecto de Análisis de Evasión de Clientes en Telecom X
+Análisis y Predicción de Evasión de Clientes en Telecom X
+📌 Descripción del Proyecto
+Este proyecto tiene como objetivo identificar los factores que influyen en la evasión de clientes (churn) en Telecom X y construir modelos predictivos que permitan anticipar qué clientes tienen mayor probabilidad de cancelar sus servicios.
 
-## Descripción del Proyecto
+El proyecto se desarrolla en dos partes:
 
-Este proyecto tiene como objetivo analizar los factores que influyen en la evasión de clientes (churn) en la empresa de telecomunicaciones Telecom X. Se realiza un proceso completo de ETL (Extracción, Transformación y Carga) y un análisis exploratorio de datos (EDA) para identificar patrones y tendencias que ayuden a comprender y mitigar la evasión de clientes.
+Parte 1: Análisis exploratorio de datos (EDA) y limpieza de datos.
 
-## Estructura del Proyecto
+Parte 2: Modelado predictivo usando algoritmos de clasificación y análisis de variables clave.
 
-El proyecto está organizado en un único notebook de Python con las siguientes secciones:
+📁 Estructura del Proyecto
+El proyecto está compuesto por dos notebooks principales:
 
-1. **Importación de Librerías**: Instalación y carga de todas las bibliotecas necesarias.
-2. **Carga de Datos desde la API**: Extracción de datos en formato JSON desde la API proporcionada.
-3. **Exploración Inicial de los Datos**: Análisis preliminar de la estructura y características de los datos.
-4. **Diccionario de Datos**: Descripción detallada de cada variable y su significado.
-5. **Verificación de Problemas en los Datos**: Identificación de valores nulos, duplicados y problemas de formato.
-6. **Limpieza y Transformación de Datos**: Corrección de inconsistencias y preparación para el análisis.
-7. **Creación de la columna "Cuentas_Diarias"**: Cálculo de valores diarios a partir de la facturación mensual.
-8. **Estandarización y Transformación (Opcional)**: Conversión de variables categóricas a numéricas y traducción de nombres.
-9. **Análisis Descriptivo**: Cálculo de estadísticas para comprender la distribución y comportamiento de los datos.
-10. **Visualizaciones**: Gráficos para identificar patrones de evasión por diferentes variables.
-11. **Análisis de Correlación (Extra)**: Estudio de la relación entre variables y su impacto en la evasión.
-12. **Informe Final**: Resumen de hallazgos, conclusiones y recomendaciones estratégicas.
+TelecomX_Churn_Analysis.ipynb: análisis exploratorio y limpieza de datos.
 
-## Requisitos y Dependencias
+TelecomX_Churn_Modeling.ipynb: entrenamiento y evaluación de modelos predictivos.
 
-Para ejecutar este proyecto, necesitarás las siguientes bibliotecas de Python:
+Parte 2 – Contenido del Notebook de Modelado
+Importación de librerías
 
-```
-pandas
-numpy
-matplotlib
-seaborn
-requests
-```
+Carga del conjunto de datos limpio
 
-Puedes instalar estas dependencias con el siguiente comando:
+Preprocesamiento y codificación de variables
 
-```bash
-pip install pandas numpy matplotlib seaborn requests
-```
+Análisis de balanceo de clases con SMOTE
 
-## Uso del Proyecto
+División en conjuntos de entrenamiento y prueba
 
-1. **Clonar el repositorio o descargar el notebook**:
-   ```bash
-   git clone <url-del-repositorio>
-   ```
+Normalización de variables
 
-2. **Instalar las dependencias**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Entrenamiento de modelos:
 
-3. **Ejecutar el notebook**:
-   Abre el notebook en Jupyter, Google Colab o cualquier otro entorno compatible y ejecuta todas las celdas en orden secuencial.
+Regresión Logística
 
-## Datos Utilizados
+Random Forest
 
-Los datos se obtienen directamente de la API de Telecom X en formato JSON:
-- URL de la API: https://raw.githubusercontent.com/ingridcristh/challenge2-data-science-LATAM/main/TelecomX_Data.json
- 
-El conjunto de datos contiene información sobre:
-- Características demográficas de los clientes
-- Servicios contratados
-- Tipo de contrato
-- Método de pago
-- Cargos mensuales y totales
-- Estado de evasión (churn)
+Evaluación de modelos con métricas:
 
-## Resultados y Conclusiones
+Precisión, Recall, F1-Score
 
-Los principales hallazgos del análisis incluyen:
+Matriz de confusión
 
-1. El tipo de contrato es el factor más influyente en el churn, con contratos mensuales mostrando el mayor riesgo.
-2. Los clientes con servicio de fibra óptica presentan mayor tendencia a la evasión.
-3. El período inicial (primeros 12 meses) es crítico para la retención de clientes.
-4. Los clientes con cargos mensuales más altos tienen mayor probabilidad de abandono.
-5. La falta de servicios adicionales como seguridad en línea y soporte técnico está correlacionada con mayor churn.
+Análisis de importancia de variables
 
-El informe final incluye recomendaciones estratégicas detalladas para abordar estos factores y mejorar la retención de clientes.
+Conclusiones estratégicas
 
-## Autor
+🧰 Requisitos y Dependencias
+Instala las siguientes librerías para ejecutar el proyecto:
 
-Mery Vega M. - Estudiante de Ciencia de Datos
+bash
+Copy
+Edit
+pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn
+📊 Datos Utilizados
+Los datos fueron obtenidos desde una API pública en formato JSON:
+
+URL: https://raw.githubusercontent.com/ingridcristh/challenge2-data-science-LATAM/main/TelecomX_Data.json
+
+Después del preprocesamiento en la Parte 1, el conjunto final incluye información sobre:
+
+Perfil del cliente
+
+Servicios contratados
+
+Tipo de contrato
+
+Métodos de pago
+
+Cargos y permanencia
+
+Estado de cancelación (Churn)
+
+📈 Resultados y Conclusiones
+Modelos Entrenados
+Regresión Logística: Requiere normalización. Buen desempeño general.
+
+Random Forest: Sin necesidad de normalización. Mostró mayor robustez y precisión.
+
+Principales Variables Predictoras
+Tipo de contrato
+
+Método de pago
+
+Cargos mensuales
+
+Permanencia del cliente
+
+Recomendaciones Estratégicas
+Promover contratos de mayor duración para reducir la evasión.
+
+Implementar estrategias de retención durante los primeros meses del cliente.
+
+Ofrecer beneficios por métodos de pago automáticos.
+
+Evaluar la experiencia del cliente con cargos elevados.
+
+Incentivar el uso de servicios de valor agregado como soporte técnico y seguridad.
+
+👤 Autor
+Mery Vega M. – Estudiante de Ciencia de Datos
 
